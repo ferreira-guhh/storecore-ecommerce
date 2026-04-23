@@ -1,0 +1,40 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+.vercel
+
+# Ignorar arquivos do Visual Studio
+.vs/
+*.suo
+*.user
+
+# Ignorar chaves e senhas
+*-firebase.json
+*.env
+
+# Ignorar dumps de banco e arquivos pesados
+*.json
+!package.json
+!package-lock.json
