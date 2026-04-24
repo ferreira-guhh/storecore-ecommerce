@@ -37,7 +37,7 @@ export default function LoginAdmin({ voltarParaHome, aoLogarComSucesso }) {
   // 🚀 A MÁGICA DO RECRUTADOR
   const acessarComoRecrutador = () => {
     setEmail('recrutador@storecore.com');
-    setSenha('recrutador10');
+    setSenha('123Gu456');
     
     // Pequeno delay para dar tempo do React atualizar os campos antes de clicar
     setTimeout(() => {
