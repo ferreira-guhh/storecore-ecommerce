@@ -25,14 +25,14 @@ export default function Footer({ irParaLogin }) {
               </div>
             </div>
             <p className="text-sm leading-relaxed text-stone-400 mt-2">
-              Sua loja completa em Ibirá. Papelaria, brinquedos, presentes e utilidades com a qualidade e o atendimento que você já conhece e confia.
+              Sua loja completa. Papelaria, brinquedos, presentes e utilidades com a qualidade e o atendimento que você já conhece e confia.
             </p>
             {/* Redes Sociais */}
             <div className="flex gap-4 mt-4">
-              <a href="https://www.instagram.com/StoreCore_anapaula?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" className="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-[#8B2C3E] hover:text-white transition-colors">
+              <a href="" className="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-[#8B2C3E] hover:text-white transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="https://www.facebook.com/anapaula.bortoli.336" className="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-[#8B2C3E] hover:text-white transition-colors">
+              <a href="" className="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-[#8B2C3E] hover:text-white transition-colors">
                 <Facebook className="w-5 h-5" />
               </a>
             </div>
@@ -57,12 +57,12 @@ export default function Footer({ irParaLogin }) {
             <ul className="space-y-4 text-sm text-stone-400">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-[#8B2C3E] shrink-0" />
-                <span>Rua-Ibirá 690 Ibirá - SP</span>
+                <span>123 Main St, Anytown, CA 12345, USA</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-[#8B2C3E] shrink-0" />
                 {/* Se quiser mudar o número depois, é só editar aqui */}
-                <span>+55 (17) 98101-1042</span>
+                <span>+55 (99) 99999-9999</span>
               </li>
               <li className="flex items-start gap-3">
                 <Clock className="w-5 h-5 text-[#8B2C3E] shrink-0" />
