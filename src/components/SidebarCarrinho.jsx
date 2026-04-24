@@ -8,7 +8,7 @@ export default function SidebarCarrinho({ isOpen, onClose, carrinho, removerDoCa
   const finalizarPeloWhatsApp = () => {
     if (carrinho.length === 0) return;
 
-    const numeroLoja = "5517981011042"; // COLOQUE O NÚMERO DO StoreCore AQUI (DDD + Número)
+    const numeroLoja = "999999999"; // COLOQUE O NÚMERO DO StoreCore AQUI (DDD + Número)
     
     let texto = "Olá, StoreCore! Vim pelo site e gostaria de conferir a disponibilidade dos seguintes produtos:\n\n";
     

@@ -1,8 +1,8 @@
 import React from 'react';
 
 const BotaoZap = ({ itensNoCarrinho, valorTotal }) => {
-  // Ajuste o número da sua mãe aqui!
-  const numeroWhatsApp = "5517981011042"; 
+
+  const numeroWhatsApp = "999999999"; 
 
   const finalizarCompra = () => {
     let mensagem = "*Olá! Vi esses itens no Catálogo Digital e gostaria de saber se tem disponível:*%0A%0A";
