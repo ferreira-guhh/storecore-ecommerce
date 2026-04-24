@@ -37,7 +37,7 @@ export default function PaginaCatalogo({
       const paginaAtual = novo ? 1 : pagina;
       
       // Monta a URL base
-      let url = `https://StoreCore-api-22ky.onrender.com/produtos?pagina=${paginaAtual}`;
+      let url = `https://bazar-api-22ky.onrender.com/produtos?pagina=${paginaAtual}`;
       
       // Adiciona categoria se não for "Todas"
       if (categoriaAtiva !== 'Todas') {

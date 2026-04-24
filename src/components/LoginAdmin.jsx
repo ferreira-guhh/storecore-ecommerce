@@ -14,7 +14,7 @@ export default function LoginAdmin({ voltarParaHome, aoLogarComSucesso }) {
 
     try {
       // 🚀 Agora bate direto na nossa própria API em vez do Firebase!
-      const resposta = await fetch('https://StoreCore-api-22ky.onrender.com/login', {
+      const resposta = await fetch('https://bazar-api-22ky.onrender.com/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, senha })

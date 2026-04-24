@@ -54,7 +54,7 @@ function App() {
   // 💡 CRIAMOS UMA FUNÇÃO SEPARADA PARA BUSCAR OS DESTAQUES
   const carregarDestaques = async () => {
     try {
-      const resDestaques = await fetch('https://StoreCore-api-22ky.onrender.com/produtos?destaque=true');
+      const resDestaques = await fetch('https://bazar-api-22ky.onrender.com/produtos?destaque=true');
       if (resDestaques.ok) setProdutos(await resDestaques.json());
     } catch (error) {
       console.error("Erro ao carregar destaques:", error);
@@ -66,11 +66,11 @@ function App() {
     const carregarTudo = async () => {
       try {
         // 1. Busca o Banner
-        const resBanner = await fetch('https://StoreCore-api-22ky.onrender.com/banner');
+        const resBanner = await fetch('https://bazar-api-22ky.onrender.com/banner');
         if (resBanner.ok) setBannerConfig(await resBanner.json());
 
         // 2. Busca os Produtos em Destaque
-        const resDestaques = await fetch('https://StoreCore-api-22ky.onrender.com/produtos?destaque=true');
+        const resDestaques = await fetch('https://bazar-api-22ky.onrender.com/produtos?destaque=true');
         if (resDestaques.ok) setProdutos(await resDestaques.json());
 
       } catch (error) {

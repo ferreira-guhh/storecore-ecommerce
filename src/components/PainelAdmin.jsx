@@ -87,14 +87,14 @@ export default function PainelAdmin({ voltarParaHome, fazerLogout }) {
 
   const carregarEstatisticas = async () => {
     try {
-      const res = await fetch('https://StoreCore-api-22ky.onrender.com/admin/estatisticas');
+      const res = await fetch('https://bazar-api-22ky.onrender.com/admin/estatisticas');
       if (res.ok) setEstatisticas(await res.json());
     } catch { console.error("Erro ao carregar estatísticas"); }
   };
 
   const carregarBanner = async () => {
     try {
-      const res = await fetch('https://StoreCore-api-22ky.onrender.com/banner');
+      const res = await fetch('https://bazar-api-22ky.onrender.com/banner');
       if (res.ok) {
         const dados = normalizarBannerConfig(await res.json());
         setBannerConfig(dados);
@@ -116,7 +116,7 @@ export default function PainelAdmin({ voltarParaHome, fazerLogout }) {
     try {
       const paginaAtual = novo ? 1 : pagina + 1;
       // API nova do admin (traz os invisíveis também)
-      let url = `https://StoreCore-api-22ky.onrender.com/admin/produtos?pagina=${paginaAtual}`;
+      let url = `https://bazar-api-22ky.onrender.com/admin/produtos?pagina=${paginaAtual}`;
       
       if (termoBusca.trim()) {
         url += `&busca=${encodeURIComponent(termoBusca.trim())}`;
@@ -171,7 +171,7 @@ export default function PainelAdmin({ voltarParaHome, fazerLogout }) {
   // --- 2. FUNÇÕES DO BANNER ---
   const salvarBanner = async () => {
     try {
-      await fetch('https://StoreCore-api-22ky.onrender.com/banner', {
+      await fetch('https://bazar-api-22ky.onrender.com/banner', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(bannerConfig)
@@ -186,7 +186,7 @@ export default function PainelAdmin({ voltarParaHome, fazerLogout }) {
   const toggleVisibilidade = async (id, statusAtual) => {
     try {
       const novoStatus = statusAtual === false ? true : false; 
-      await fetch(`https://StoreCore-api-22ky.onrender.com/admin/produtos/${id}/visibilidade`, {
+      await fetch(`https://bazar-api-22ky.onrender.com/admin/produtos/${id}/visibilidade`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ visivel: novoStatus })
@@ -214,7 +214,7 @@ export default function PainelAdmin({ voltarParaHome, fazerLogout }) {
         visivel: produtoEditando.visivel !== false
       };
 
-      const url = produtoEditando.id ? `https://StoreCore-api-22ky.onrender.com/admin/produtos/${produtoEditando.id}` : `https://StoreCore-api-22ky.onrender.com/admin/produtos`;
+      const url = produtoEditando.id ? `https://bazar-api-22ky.onrender.com/admin/produtos/${produtoEditando.id}` : `https://bazar-api-22ky.onrender.com/admin/produtos`;
       const metodo = produtoEditando.id ? 'PUT' : 'POST';
 
       const res = await fetch(url, {
@@ -247,7 +247,7 @@ export default function PainelAdmin({ voltarParaHome, fazerLogout }) {
   const handleDeletar = async (id) => {
     if (window.confirm("Atenção: Deseja realmente excluir este produto permanentemente?")) {
       try {
-        await fetch(`https://StoreCore-api-22ky.onrender.com/admin/produtos/${id}`, { method: 'DELETE' });
+        await fetch(`https://bazar-api-22ky.onrender.com/admin/produtos/${id}`, { method: 'DELETE' });
         setProdutos(prev => prev.filter(p => p.id !== id));
         carregarProdutos(true);
         carregarEstatisticas();
