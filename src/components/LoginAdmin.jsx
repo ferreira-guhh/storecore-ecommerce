@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Lock, ArrowLeft, AlertCircle } from 'lucide-react';
+import { Lock, ArrowLeft, AlertCircle, Zap } from 'lucide-react'; // Adicionamos o Zap aqui
 
 export default function LoginAdmin({ voltarParaHome, aoLogarComSucesso }) {
   const [email, setEmail] = useState('');
@@ -8,12 +8,11 @@ export default function LoginAdmin({ voltarParaHome, aoLogarComSucesso }) {
   const [carregando, setCarregando] = useState(false);
 
   const handleLogin = async (e) => {
-    e.preventDefault(); // Não recarrega a página
+    if (e) e.preventDefault(); // Não recarrega a página (o 'if' protege caso o clique venha do botão demo)
     setCarregando(true);
     setErro('');
 
     try {
-      // 🚀 Agora bate direto na nossa própria API em vez do Firebase!
       const resposta = await fetch('https://bazar-api-22ky.onrender.com/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -21,10 +20,8 @@ export default function LoginAdmin({ voltarParaHome, aoLogarComSucesso }) {
       });
       
       if (resposta.ok) {
-        // Se a API confirmar a senha, libera a passagem
         aoLogarComSucesso();
       } else {
-        // Se a senha estiver errada, pega a mensagem de erro do backend
         const dadosErro = await resposta.json();
         setErro(dadosErro.erro || 'E-mail ou senha incorretos.');
       }
@@ -35,6 +32,17 @@ export default function LoginAdmin({ voltarParaHome, aoLogarComSucesso }) {
     } finally {
       setCarregando(false);
     }
+  };
+
+  // 🚀 A MÁGICA DO RECRUTADOR
+  const acessarComoRecrutador = () => {
+    setEmail('recrutador@storecore.com');
+    setSenha('recrutador10');
+    
+    // Pequeno delay para dar tempo do React atualizar os campos antes de clicar
+    setTimeout(() => {
+      document.getElementById('btn-login').click();
+    }, 600);
   };
 
   return (
@@ -87,6 +95,7 @@ export default function LoginAdmin({ voltarParaHome, aoLogarComSucesso }) {
           )}
 
           <button 
+            id="btn-login" // <-- Importante para o auto-click funcionar!
             type="submit"
             disabled={carregando}
             className="w-full py-3 bg-[#8B2C3E] hover:bg-[#6e2231] text-white font-bold rounded-lg transition-all shadow-md active:scale-95 disabled:opacity-50"
@@ -94,6 +103,23 @@ export default function LoginAdmin({ voltarParaHome, aoLogarComSucesso }) {
             {carregando ? 'Verificando...' : 'Entrar no Painel'}
           </button>
         </form>
+
+        {/* Divisor Visual */}
+        <div className="mt-6 mb-4 flex items-center">
+          <div className="flex-grow border-t border-stone-200"></div>
+          <span className="px-3 text-xs font-semibold text-stone-400 uppercase">Acesso Demo</span>
+          <div className="flex-grow border-t border-stone-200"></div>
+        </div>
+
+        {/* Botão Recrutador */}
+        <button
+          type="button"
+          onClick={acessarComoRecrutador}
+          className="w-full py-3 bg-stone-800 hover:bg-stone-900 text-white font-bold rounded-lg transition-all shadow-md active:scale-95 flex items-center justify-center gap-2 group"
+        >
+          <Zap className="w-5 h-5 text-yellow-400 group-hover:scale-110 transition-transform" />
+          Acessar como Recrutador
+        </button>
 
         {/* Botão Voltar */}
         <button 
