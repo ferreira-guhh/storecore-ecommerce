@@ -39,10 +39,11 @@ export default function LoginAdmin({ voltarParaHome, aoLogarComSucesso }) {
     setEmail('recrutador@storecore.com');
     setSenha('recrutador10');
     
-    // Pequeno delay para dar tempo do React atualizar os campos antes de clicar
+    // Deixamos um tempo menor (100ms) só para o React respirar,
+    // E acionamos o clique. Se o backend estiver online, vai fluir perfeito!
     setTimeout(() => {
       document.getElementById('btn-login').click();
-    }, 600);
+    }, 100);
   };
 
   return (
